@@ -5,36 +5,35 @@ using Terraria.ModLoader;
 
 namespace Testmod.Items
 {
-    public class Crystalpickaxe : ModItem
+    public class Crystalaxe : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Pickaxe");
-            Tooltip.SetDefault("Light the caverns as you scour for various loot");
+            DisplayName.SetDefault("Crystal Axe");
+            Tooltip.SetDefault("Shred those trees to peices with pixel perfext accuracy");
         }
         public override void SetDefaults()
         {
-            item.damage = 25;
+            item.damage = 40;
             item.melee = true;
             item.width = 32;
-            item.height = 32;
-            item.useTime = 3;
-            item.useAnimation = 10;
-            item.pick = 190;
+            item.height = 26;
+            item.useTime = 15;
+            item.useAnimation = 30;
+            item.axe = 115;
             item.useStyle = 1;
-            item.knockBack = 6;
-            item.value = 10;
+            item.knockBack = 10;
+            item.value = 10000;
             item.rare = 5;
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
-            item.useTurn = true;
         }
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Pearlwood, 15);
-            recipe.AddIngredient(ItemID.CrystalShard, 30);
-            recipe.AddIngredient(ItemID.TitaniumBar, 5);
+            recipe.AddIngredient(ItemID.CrystalShard, 15);
+            recipe.AddIngredient(ItemID.TitaniumBar, 3);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
