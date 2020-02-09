@@ -29,7 +29,11 @@ namespace Testmod.Items.Armor
 		public override void UpdateEquip(Player player)
 		{
 			player.allDamage += 0.2f;
-			
+		}
+		public static void setBonus(Player player)
+		{
+			player.setBonus = "Greatly increased movement speed";
+			player.moveSpeed += 0.50f;
 		}
 
 		public override void AddRecipes()
