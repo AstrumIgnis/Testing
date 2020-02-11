@@ -29,7 +29,7 @@ namespace Testmod.Items.Weapons
             item.autoReuse = false;
             item.shoot = 10;
             item.shootSpeed = 8f;
-            item.useAmmo = AmmoID.Bullet; //replace this with rope after you are done testing
+            item.useAmmo = ItemID.Rope;
         }
     }
 }
