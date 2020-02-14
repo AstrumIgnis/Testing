@@ -1,10 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Testmod.Projectiles
+namespace WarOfTheCosmos.Projectiles
 {
     public class Elementdisc : ModProjectile
     {

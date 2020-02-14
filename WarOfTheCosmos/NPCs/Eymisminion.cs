@@ -1,9 +1,8 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Testmod.NPCs
+namespace WarOfTheCosmos.NPCs
 {
     public class Eymisminion : ModNPC
     {

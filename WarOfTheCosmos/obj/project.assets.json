@@ -8,19 +8,19 @@
     ".NETFramework,Version=v4.5": []
   },
   "packageFolders": {
-    "C:\\Users\\alekz\\.nuget\\packages\\": {}
+    "C:\\Users\\greve\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekz\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\WarOfTheCosmos.csproj",
+      "projectUniqueName": "C:\\Users\\greve\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\WarOfTheCosmos.csproj",
       "projectName": "WarOfTheCosmos",
-      "projectPath": "C:\\Users\\alekz\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\WarOfTheCosmos.csproj",
-      "packagesPath": "C:\\Users\\alekz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekz\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\obj\\",
+      "projectPath": "C:\\Users\\greve\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\WarOfTheCosmos.csproj",
+      "packagesPath": "C:\\Users\\greve\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\greve\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\WarOfTheCosmos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alekz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\greve\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -43,7 +43,7 @@
     },
     "frameworks": {
       "net45": {
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

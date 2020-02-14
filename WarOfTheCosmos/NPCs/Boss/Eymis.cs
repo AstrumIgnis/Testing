@@ -5,19 +5,34 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WarOfTheCosmos.Enums;
 
 namespace WarOfTheCosmos.NPCs.Boss
 {
     [AutoloadBossHead]
     public class Eymis : ModNPC
     {
+        public const int NPC_STATE = 0;
+
+        public enum States
+        {
+            FloatTowards,
+            DashingFirstTime,
+            DashingSecondTime,
+            DashingThirdTime,
+            MovingToPlayer,
+            CirclingAroundPlayerFirstTime,
+            CirclingAroundPlayerSecondTime,
+            CirclingAroundPlayerThirdTime,
+        }
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eymis");
         }
         public override void SetDefaults()
         {
-            npc.aiStyle = 5;
+            npc.aiStyle = (int) AIStyles.CustomAI;
             npc.lifeMax = 15000;
             npc.damage = 50;
             npc.defense = 30;
@@ -36,6 +51,8 @@ namespace WarOfTheCosmos.NPCs.Boss
             npc.DeathSound = SoundID.NPCDeath59;
             npc.buffImmune[24] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Fall");
+
+            npc.ai[NPC_STATE] = (int) States.FloatTowards;
         }
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
@@ -45,31 +62,55 @@ namespace WarOfTheCosmos.NPCs.Boss
         }
         public override void AI()
         {
-            npc.ai[0]++;
-            Player P = Main.player[npc.target];
-            if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead || !Main.player[npc.target].active)
+            switch ((States)npc.ai[NPC_STATE])
             {
-                npc.TargetClosest(true);
+                case States.FloatTowards:
+                    npc.TargetClosest();
+                    FloatTowardsPlayer();
+                    break;
+                case States.DashingFirstTime:
+                    break;
+                case States.DashingSecondTime:
+                    break;
+                case States.DashingThirdTime:
+                    break;
+                case States.MovingToPlayer:
+                    break;
+                case States.CirclingAroundPlayerFirstTime:
+                    break;
+                case States.CirclingAroundPlayerSecondTime:
+                    break;
+                case States.CirclingAroundPlayerThirdTime:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-            npc.netUpdate = true;
+            //FloatsTowardsPlayer
+            //Dash at the player
+            //Dash at the player
+            //Dash at the player
+            //Move above the player
+            //Move in a circle around the player
+            //While circling the player fire a project
+            //While circling the player summon a minion
+            //Move in a circle around the player
+            //While circling the player fire a project
+            //While circling the player summon a minion
+            //Move in a circle around the player
+            //While circling the player fire a project
+            //While circling the player summon a minion
+            //Start back at the top
+        }
 
-            npc.ai[1]++;
-            if (npc.ai[1] >= 10)
-            {
-                float Speed = 50f;
-                Vector2 vector8 = new Vector2(npc.position.X + (npc.width / 2), npc.position.Y + (npc.height / 2));
-                int damage = 40;
-                int type = mod.ProjectileType("Elementdisc");
-                Main.PlaySound(23, (int)npc.position.X, (int)npc.position.Y, 17);
-                float rotation = (float)Math.Atan2(vector8.Y - (P.position.Y + (P.height * 0.5f)), vector8.X - (P.position.X + (P.width * 0.5f)));
-                int num54 = Projectile.NewProjectile(vector8.X, vector8.Y, (float)((Math.Cos(rotation) * Speed) * -1), (float)((Math.Sin(rotation) * Speed) * -1), type, damage, 0f, 0);
-                npc.ai[1] = 0;
-            }
-            if (npc.ai[0] % 600 == 3)
-            {
-                NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("Eymisminion"));
-            }
-            npc.ai[1] += 0;
+        private void FloatTowardsPlayer()
+        {
+            var player = Main.player[npc.target];
+            var moveTo = player.Center; //This player is the same that was retrieved in the targeting section.
+
+            var speed = 1f; //make this whatever you want
+            var move = moveTo - npc.Center; //this is how much your boss wants to move
+            var magnitude = Math.Sqrt(move.X * move.X + move.Y * move.Y); //fun with the Pythagorean Theorem
+            npc.velocity = move * (speed / (float) magnitude);
         }
     }
 }
